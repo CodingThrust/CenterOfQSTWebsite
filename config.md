@@ -19,6 +19,7 @@ website_title = "Center of Quantum Science and Technology"
 website_descr = "A theme lab about quantum devices, quantum control, quantum software and quantum material at Advanced Material Thrust, Function Hub, Hong Kong University of Science and Technology (Guangzhou)"
 website_url   = "https://tlienart.github.io/FranklinTemplates.jl/"
 members_faculty = eachrow(readdlm("_assets/faculty.csv", ',', skipstart=1))
+talks_list = eachrow(readdlm("_assets/talks.csv", ',', skipstart=1))
 +++
 
 <!--

@@ -14,3 +14,9 @@ function lx_baz(com, _)
   # do whatever you want here
   return uppercase(brace_content)
 end
+
+
+function hfun_isemptystring(vname)
+  val = Meta.parse(vname[1])
+  return "isempty($val)"
+end
