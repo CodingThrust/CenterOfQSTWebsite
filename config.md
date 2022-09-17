@@ -22,6 +22,7 @@ members_faculty = eachrow(readdlm("_assets/faculty.csv", ',', skipstart=1))
 talks_list = eachrow(readdlm("_assets/talks.csv", ',', skipstart=1))
 
 # generate faculty web pages
+mkpath("team")
 for (cname, ename, affiliation, tel, office, email, docs, home, bio, interest, avatar) in members_faculty
     filename = joinpath("team", "$ename.md")
     open(filename, "w") do f
