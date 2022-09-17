@@ -1,18 +1,18 @@
-@def title = "Franklin Example"
-@def tags = ["syntax", "code"]
+@def title = "Team"
+@def tags = ["team", "faculty", "QST", "Quantum Science and Technology"]
 
-# Members
+# Team
 ## Faculties
 ~~~
 <table>
 {{for (cname, ename, title, tel, office, email, docs, home, bio, interest, avatar) in members_faculty}}
     <tr>
-      <td>
+      <td style="border-bottom:0px">
       <img src="/assets/avatars/{{ename}}.png" style="object-fit: cover; width: 100px; height: 120px">
       </td>
-      <td>
+      <td style="border-bottom:0px">
         <p>
-        <a href="{{home}}">{{ename}} ({{cname}})</a><br>
+        <a href="/team/{{ename}}/">{{ename}} ({{cname}})</a><br>
         <small>
           {{title}}
           <br>

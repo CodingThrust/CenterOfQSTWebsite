@@ -20,6 +20,38 @@ website_descr = "A theme lab about quantum devices, quantum control, quantum sof
 website_url   = "https://tlienart.github.io/FranklinTemplates.jl/"
 members_faculty = eachrow(readdlm("_assets/faculty.csv", ',', skipstart=1))
 talks_list = eachrow(readdlm("_assets/talks.csv", ',', skipstart=1))
+
+# generate faculty web pages
+for (cname, ename, affiliation, tel, office, email, docs, home, bio, interest, avatar) in members_faculty
+    filename = joinpath("team", "$ename.md")
+    open(filename, "w") do f
+        write(f, """# $ename ($cname)
+~~~
+        <table>
+        <tr>
+      <td style="border-bottom-width:0px">
+      <img src="/assets/avatars/$ename.png" style="object-fit: cover; width: 100px; height: 120px">
+      </td>
+      <td style="border-bottom-width:0px; padding-left:20px">
+        <p>
+          $affiliation<br>
+        home page: <a href="$(home)">$home</a>
+          <br>
+          Email: <a href="mailto:$email">$email</a>
+          <br>
+          Office: $office</a>
+        </p>
+      </td>
+    </tr>
+    </table>
+~~~
+## Biography
+$bio
+## Research Interest
+$interest
+    """)
+    end
+end
 +++
 
 <!--
