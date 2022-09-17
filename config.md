@@ -61,5 +61,5 @@ Add here global latex commands to use throughout your pages.
 \newcommand{\R}{\mathbb R}
 \newcommand{\scal}[1]{\langle #1 \rangle}
 
-@def prepath = get(ENV, "PREVIEW_FRANKLIN_PREPATH", "qst") # In the third argument put the prepath you normally use
+@def prepath = get(ENV, "PREVIEW_FRANKLIN_PREPATH", "CenterOfQSTWebsite") # In the third argument put the prepath you normally use
 @def website_url = get(ENV, "PREVIEW_FRANKLIN_WEBSITE_URL", "codingthrust.github.io") # Just put the website name
