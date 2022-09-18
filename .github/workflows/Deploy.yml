@@ -36,7 +36,6 @@ jobs:
     #   specific arguments, see the documentation or ?optimize in the REPL.
     - run: NOTIONDATABASE=${{ secrets.NOTIONDATABASE }} UPDATEDATABASE=true julia -e '
             using Pkg; Pkg.activate("."); Pkg.instantiate();
-            @show ENV["NOTIONDATABASE"];
             using NodeJS; run(`$(npm_cmd()) install highlight.js`);
             using Franklin;
             optimize()'

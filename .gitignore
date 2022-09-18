@@ -2,8 +2,6 @@ __site/
 .DS_Store
 node_modules/
 package-lock.json
-team/
 Manifest.toml
-_assets/databases/
 _local/
 *.swp
