@@ -6,3 +6,4 @@ team/
 Manifest.toml
 _assets/databases/
 _local/
+*.swp
