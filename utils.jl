@@ -40,7 +40,7 @@ function render_html_member(row)
         <table>
         <tr>
       <td style="border-bottom-width:0px">
-      <img src="/assets/avatars/$img" style="object-fit: cover; width: 100px; height: 120px; padding-left:0px; max-width: none">
+      <img src="/assets/$img" style="object-fit: cover; width: 100px; height: 120px; padding-left:0px; max-width: none">
       </td>
       <td style="border-bottom-width:0px; padding-left:20px">
         <p>
