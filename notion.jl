@@ -32,7 +32,7 @@ end
 
 function dbrow2plaintext(keys, row; download_files, overwrite)
     dbid = join(split(row["parent"]["database_id"], "-"), "")
-    datafolder = joinpath("_assets", "databases", dbid)
+    datafolder = joinpath("__site", "assets", "databases", dbid)
     res = Any[]
     for k in keys
         v = row["properties"][k]

@@ -29,7 +29,7 @@ function lx_baz(com, _)
     return uppercase(brace_content)
 end
 
-extract_single(image) = isempty(image) ? "" : chop(image[1]; head=8, tail=0)
+extract_single(image) = isempty(image) ? "" : chop(image[1]; head=6, tail=0)
 
 # generate faculty web pages
 function render_html_member(row)
@@ -40,7 +40,7 @@ function render_html_member(row)
         <table>
         <tr>
       <td style="border-bottom-width:0px">
-      <img src="/assets/$img" style="object-fit: cover; width: 100px; height: 120px; padding-left:0px; max-width: none">
+      <img src="$img" style="object-fit: cover; width: 100px; height: 120px; padding-left:0px; max-width: none">
       </td>
       <td style="border-bottom-width:0px; padding-left:20px">
         <p>
@@ -127,7 +127,7 @@ function render_member(row::Dict)
     img = extract_single(avatar)
     return """<tr>
       <td style="border-bottom:0px">
-      <img src="/assets/$img" style="object-fit: cover; width: 100px; height: 120px; padding-left:0px; max-width:none">
+      <img src="$img" style="object-fit: cover; width: 100px; height: 120px; padding-left:0px; max-width:none">
       </td>
       <td style="border-bottom:0px">
         <p>
@@ -162,7 +162,7 @@ function render_research(row::Dict)
     return """<h3>$title</h3>
     <table>
     <tr><td style="border-bottom:0px">
-    <img src="/assets/$img" style="object-fit: cover; width: 200px; height: 240px; padding-left:0px">
+    <img src="$img" style="object-fit: cover; width: 200px; height: 240px; padding-left:0px">
     </td>
     <td style="border-bottom:0px; vertical-align:top">
     <p>$abstract</p>
