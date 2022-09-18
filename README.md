@@ -11,12 +11,12 @@ A manifest is provided to exactly reproduce the package dependencies as used by 
 
 ### To serve
 ```bash
-$ NOTIONDATABASE="...your notion secret..." UPDATEDATABASE=false jp -e "using Franklin; serve()"
+$ NOTIONDATABASE="...your notion secret..." UPDATEDATABASE=false julia --project -e "using Franklin; serve()"
 ```
 
 ### To publish
 ```bash
-$ jp -e "using Franklin; publish()"
+$ julia --project -e "using Franklin; publish()"
 ```
 
 ## Update database (requires notion access)
