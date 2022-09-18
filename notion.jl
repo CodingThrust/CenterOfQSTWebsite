@@ -79,7 +79,7 @@ function dbrow2plaintext(keys, row; download_files, overwrite)
 end
 
 function load_or_write_db(id; update, secret)
-    folder = joinpath("_assets", "databases", "$id")
+    folder = joinpath("__site", "assets", "databases", "$id")
     mkpath(folder)
     fname = joinpath(folder, "db.json")
     if update
