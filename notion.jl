@@ -32,7 +32,7 @@ end
 
 function dbrow2plaintext(keys, row; download_files, overwrite)
     dbid = join(split(row["parent"]["database_id"], "-"), "")
-    datafolder = joinpath("_assets", "databases", dbid)
+    datafolder = joinpath("__site", "assets", "databases", dbid)
     res = Any[]
     for k in keys
         v = row["properties"][k]
@@ -79,7 +79,7 @@ function dbrow2plaintext(keys, row; download_files, overwrite)
 end
 
 function load_or_write_db(id; update, secret)
-    folder = joinpath("_assets", "databases", "$id")
+    folder = joinpath("__site", "assets", "databases", "$id")
     mkpath(folder)
     fname = joinpath(folder, "db.json")
     if update
