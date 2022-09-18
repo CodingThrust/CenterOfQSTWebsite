@@ -1,3 +1,13 @@
 [deps]
+DelimitedFiles = "8bb1440f-4735-579b-a4ab-409b98df4dab"
 Franklin = "713c75ef-9fc9-4b05-94a9-213340da978e"
+HTTP = "cd3eb016-35fb-5094-929b-558a96fad6f3"
+JSON = "682c06a0-de6a-54ab-a142-c8b1cf79cde6"
 NodeJS = "2bd173c7-0d6d-553b-b6af-13a54713934c"
+
+[compat]
+julia = "1"
+JSON = "0.21"
+HTTP = "0.9"
+Franklin = "0.10"
+NodeJS = "1.3"
