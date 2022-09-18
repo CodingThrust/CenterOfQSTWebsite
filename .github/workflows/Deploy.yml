@@ -4,9 +4,14 @@ on:
     branches:
       - main
       - master
+  issue_comment:
+    types:
+      - created
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    if: ${{github.event_name == 'push' || github.event.comment.body == 'update |database>'}}
     permissions:
       contents: write
     steps:
