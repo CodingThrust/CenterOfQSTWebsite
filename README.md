@@ -8,3 +8,13 @@ master branch is automatically deployed by Github Actions.
 
 To view the site locally, install `Franklin` and run `serve()` in the root of this repository.
 A manifest is provided to exactly reproduce the package dependencies as used by CI.
+
+### To serve
+```bash
+$ NOTIONDATABASE="...your notion secret..." UPDATEDATABASE=false jp -e "using Franklin; serve()"
+```
+
+### To publish
+```bash
+$ jp -e "using Franklin; publish()"
+```
