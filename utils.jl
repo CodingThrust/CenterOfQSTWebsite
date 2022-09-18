@@ -113,7 +113,7 @@ function render_research(row::Dict)
     return """<h3>$title</h3>
     <table>
     <tr><td style="border-bottom:0px">
-    <img src="$img" style="object-fit: cover; width: 200px; height: 240px; padding-left:0px">
+    <img src="$img" style="object-fit: cover; width: 200px; height: 240px; padding-left:0px; max-width:none">
     </td>
     <td style="border-bottom:0px; vertical-align:top">
     <p>$abstract</p>
