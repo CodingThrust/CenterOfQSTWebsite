@@ -83,7 +83,7 @@ function render_member(row::Dict)
     return """
     <div style="display:block; vertical-align: top; margin-top:20px;">
       <div>
-      <img src="$img" style="object-fit: cover; width:25%; min-width: 130px; min-height: 180px; padding:10px; max-width:none">
+      <a href="/team/$ename/"><img src="$img" style="object-fit: cover; width:25%; min-width: 130px; min-height: 180px; padding:10px; max-width:none"></a>
       </div>
       <div style="padding:10px">
         <p style="margin-top:0">

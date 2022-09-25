@@ -74,14 +74,16 @@ figcaption {
 
 
 .div-row {
-  display:flex;
   vertical-align: top;
+  text-align: center;
+  width:100%;
 }
 
 .div-first {
   padding:10px; 
   width: 25%; 
   min-width: 130px;
+  margin: auto;
 }
 
 .div-first img {
@@ -93,5 +95,4 @@ figcaption {
 .div-second {
   border-bottom-width:0px;
   padding:10px;
-  font-size:0.9em;
 }
