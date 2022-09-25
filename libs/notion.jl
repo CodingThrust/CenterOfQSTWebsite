@@ -101,11 +101,11 @@ function render_html_member(row)
     img = extract_single(avatar)
     return """# $ename ($cname)
 ~~~
-    <div style="display:flex; vertical-align: top">
-      <div>
-      <img src="$img" style="object-fit: cover; width: 100px; height:140px; padding-left:0px; max-width: none">
+    <div class="div-row">
+      <div class="div-first">
+      <img src="$img">
       </div>
-      <div style="border-bottom-width:0px; padding-left:20px">
+      <div class="div-second">
         <p style="margin-top:0">
           $affiliation<br>
           <a href="$(home)">university home page</a>
