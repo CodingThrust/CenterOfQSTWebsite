@@ -37,9 +37,9 @@ function hfun_render_talks()
 end
 
 function render_talk(row::Dict)
-    name, datetime, title, abstract = row["Name"], row["Date and Time"], row["Title"], row["Abstract"]
+    name, datetime, title, abstract, link = row["Name"], row["Date and Time"], row["Title"], row["Abstract"], row["HKUST Poster"]
     any(isempty, (title, name, abstract, datetime)) &&  return ""
-    return """<h3> $title </h3>
+    return """<h3> <a href="$link">$title</a></h3>
 $name
 <p><small>
 $abstract
@@ -81,11 +81,11 @@ function render_member(row::Dict)
     title = join(titles, "<br>")
     img = extract_single(avatar)
     return """
-    <div style="display:flex; vertical-align: top; margin-top:20px;">
+    <div style="display:block; vertical-align: top; margin-top:20px;">
       <div>
-      <img src="$img" style="object-fit: cover; width: 100px; height: 140px; padding-left:0px; max-width:none">
+      <img src="$img" style="object-fit: cover; width:25%; min-width: 130px; min-height: 180px; padding:10px; max-width:none">
       </div>
-      <div style="margin-left:20px">
+      <div style="padding:10px">
         <p style="margin-top:0">
         <a href="/team/$ename/">$ename ($cname)</a><br>
         <small>
@@ -118,15 +118,16 @@ function render_research(row::Dict)
     title, person, abstract, image, date = row["Name"], row["Person"], row["Abstract"], row["Image"], row["Date"]
     any(isempty, (title, person, abstract, image)) &&  return ""
     img = extract_single(image)
-    return """<h3>$title</h3>
-    <div style="display:flex; vertical-align: top; margin-top:20px;">
-      <div>
-        <img src="$img" style="object-fit: cover; width: 200px; height: 240px; padding-left:0px; max-width:none">
-      </div>
-      <div style="width:100%;margin-left:20px">
-      <p>$abstract</p>
-      <p align="right" rel="author">$(render_date(parse_date(date))), <a href="/team/$person">$person</a></p>
-      </div>
+    return """
+    <div style="margin-bottom:30px; margin-top: 30px">
+      <figure>
+        <img src="$img" object-fit: cover; width: 50%; padding-left:0px; max-width:none">
+        <figcaption>
+        <h3 style="margin-top:10px">$title</h3>
+        $abstract
+        <p align="right" rel="author" style="padding-right:30px">$(render_date(parse_date(date))), <a href="/team/$person">$person</a></p>
+        </figcaption>
+      </figure>
     </div>
     """
 end

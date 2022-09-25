@@ -57,3 +57,41 @@ h2 a:visited { color: #1c1c1c !important; }
 h3 a:visited { color: #1c1c1c !important; }
 h4 a:visited { color: #1c1c1c !important; }
 h5 a:visited { color: #1c1c1c !important; }
+
+figure {
+  padding: 4px;
+  margin: auto;
+}
+
+figcaption {
+  display: block;
+  width:100%;
+  font-style: italic;
+  padding: 2px;
+  text-align: left;
+  caption-side: bottom;
+}
+
+
+.div-row {
+  display:flex;
+  vertical-align: top;
+}
+
+.div-first {
+  padding:10px; 
+  width: 25%; 
+  min-width: 130px;
+}
+
+.div-first img {
+  object-fit: cover; 
+  width: 100%; 
+  max-width: none;
+}
+
+.div-second {
+  border-bottom-width:0px;
+  padding:10px;
+  font-size:0.9em;
+}
