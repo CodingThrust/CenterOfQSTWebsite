@@ -27,5 +27,5 @@ The emails of professors can be found in the [team page](/team).
 * Email: TBD
 * Twitter, et al.: TBD
 ~~~
-<a href="/assets/map.jpeg"><img src="/assets/map.jpeg" style="width:100%"></img></a>
+<a href="/assets/map.jpg"><img src="/assets/map.jpg" style="width:100%"></img></a>
 ~~~
