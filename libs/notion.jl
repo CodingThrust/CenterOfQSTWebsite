@@ -103,16 +103,15 @@ function render_html_member(row)
 ~~~
     <div class="div-row">
       <div class="div-first">
-      <img src="$img">
+      <a href="$img"><img src="$img"></a>
       </div>
       <div class="div-second">
         <p style="margin-top:0">
-          $affiliation<br>
-          <a href="$(home)">university home page</a>
+          <a href="$(home)">University home page</a>
           <br>
-          Email: <a href="mailto:$email">$email</a>
+          <strong>Email:</strong> <a href="mailto:$email">$email</a>
           <br>
-          Office: $office</a>
+          <strong>Office:</strong> $office</a>
         </p>
       </div>
     </div>
