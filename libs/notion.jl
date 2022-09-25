@@ -1,4 +1,4 @@
-using HTTP, JSON
+using HTTP, JSON, Dates
 
 function dbread(token; download_files, overwrite, secret)
     headers = [
@@ -95,3 +95,62 @@ function load_or_write_db(id; update, secret)
     end
 end
 
+function render_html_member(row)
+    cname, ename, affiliations, office, email, avatar, interest, bio, home = row["中文名"], row["English name"], row["Titles"], row["Office"], row["Email"], row["Avatar"], row["Interest"], row["Bio"], row["Home page"]
+    affiliation = join(affiliations, raw"<br>")
+    img = extract_single(avatar)
+    return """# $ename ($cname)
+~~~
+    <div style="display:flex; vertical-align: top">
+      <div>
+      <img src="$img" style="object-fit: cover; width: 100px; height:140px; padding-left:0px; max-width: none">
+      </div>
+      <div style="border-bottom-width:0px; padding-left:20px">
+        <p style="margin-top:0">
+          $affiliation<br>
+          <a href="$(home)">university home page</a>
+          <br>
+          Email: <a href="mailto:$email">$email</a>
+          <br>
+          Office: $office</a>
+        </p>
+      </div>
+    </div>
+~~~
+## Biography
+$bio
+## Research Interest
+$interest
+    """
+end
+
+function generate_team_pages()
+    mkpath("team")
+    keys = db_team["keys"]
+    for rowdata in db_team["data"]
+        row = Dict(zip(keys, rowdata))
+        ename = row["English name"]
+        filename = joinpath("team", "$ename.md")
+        open(filename, "w") do f
+            write(f, render_html_member(row))
+        end
+    end
+end
+
+function parse_time(time)
+    #res = match(r"(\d+)-(\d+)-(\d+)T(\d+):(\d+):\d+.\d+\+\d+:00", time)
+    #return DateTime(parse.(Int, getindex.(Ref(res), 1:5))...)
+    return DateTime(time, dateformat"y-m-dTH:M:S.s+08:00")
+end
+
+function render_time(time)
+    return Dates.format(time, dateformat"I:MM p, u dd, YYYY")
+end
+
+function parse_date(date)
+    return Date(date, dateformat"y-m-d")
+end
+
+function render_date(date)
+    return Dates.format(date, dateformat"u d, Y")
+end
