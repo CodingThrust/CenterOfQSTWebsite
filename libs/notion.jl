@@ -153,3 +153,8 @@ end
 function render_date(date)
     return Dates.format(date, dateformat"u d, Y")
 end
+
+const id_research = "003d7922fb114b159c1a8323e9324ee2"
+const id_talk = "d7fd2fd0f11e48dbb13e1018682d6219"
+const id_team = "eb1998c2a7c54c649aa88ca82acc101d"
+const id_lab = "dcbb0aa27be6422d986506c9db8a69e0"
