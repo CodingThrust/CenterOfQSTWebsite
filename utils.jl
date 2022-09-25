@@ -118,11 +118,11 @@ function render_research(row::Dict)
     return """
     <div style="margin-bottom:30px; margin-top: 30px">
       <figure>
-        <img src="$img" object-fit: cover; width: 50%; padding-left:0px; max-width:none">
+        <img src="$img" style="object-fit: cover; max-width: 95%; padding-left:0px; width:500px; margin:auto;">
         <figcaption>
         <h3 style="margin-top:10px">$title</h3>
-        $abstract
-        <p align="right" rel="author" style="padding-right:30px">$(render_date(parse_date(date))), <a href="/team/$person">$person</a></p>
+        <p>$abstract</p>
+        <p align="right" rel="author">$(render_date(parse_date(date))), <a href="/team/$person">$person</a></p>
         </figcaption>
       </figure>
     </div>
