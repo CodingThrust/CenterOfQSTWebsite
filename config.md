@@ -21,7 +21,7 @@ prepath = get(ENV, "PREVIEW_FRANKLIN_PREPATH", "CenterOfQSTWebsite") # In the th
 website_url = get(ENV, "PREVIEW_FRANKLIN_WEBSITE_URL", "codingthrust.github.io") # Just put the website name
 
 # Database and team page
-include("notion.jl")
+include("_libs/notion.jl")
 
 # global constants
 update_dbs = get(ENV, "UPDATEDATABASE", "false") == "true"
@@ -35,50 +35,7 @@ db_team = load_or_write_db(id_team; update=update_dbs, secret=ENV["NOTIONDATABAS
 
 extract_single(image) = isempty(image) ? "" : chop(image[1]; head=6, tail=0)
 
-# generate faculty web pages
-function render_html_member(row)
-    cname, ename, affiliation, office, email, avatar, interest, bio, home = row["中文名"], row["English name"], row["Titles"], row["Office"], row["Email"], row["Avatar"], row["Interest"], row["Bio"], row["Home page"]
-    img = extract_single(avatar)
-    return """# $ename ($cname)
-~~~
-        <table>
-        <tr>
-      <td style="border-bottom-width:0px">
-      <img src="$img" style="object-fit: cover; width: 100px; height: 120px; padding-left:0px; max-width: none">
-      </td>
-      <td style="border-bottom-width:0px; padding-left:20px">
-        <p>
-          $affiliation<br>
-        home page: <a href="$(home)">$home</a>
-          <br>
-          Email: <a href="mailto:$email">$email</a>
-          <br>
-          Office: $office</a>
-        </p>
-      </td>
-    </tr>
-    </table>
-~~~
-## Biography
-$bio
-## Research Interest
-$interest
-    """
-end
-
 # genreate member pages
-function generate_team_pages()
-    mkpath("team")
-    keys = db_team["keys"]
-    for rowdata in db_team["data"]
-        row = Dict(zip(keys, rowdata))
-        ename = row["English name"]
-        filename = joinpath("team", "$ename.md")
-        open(filename, "w") do f
-            write(f, render_html_member(row))
-        end
-    end
-end
 generate_team_pages()
 +++
 

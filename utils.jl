@@ -1,4 +1,4 @@
-include("notion.jl")
+include("_libs/notion.jl")
 
 # global constants
 id_research = "003d7922fb114b159c1a8323e9324ee2"
@@ -30,7 +30,10 @@ end
 
 function hfun_render_talks()
     keys = db_talk["keys"]
-    join(filter(!isempty, [render_talk(Dict(zip(keys, row))) for row in db_talk["data"]]), "\n")
+    timeid = findfirst(==("Date and Time"), keys)
+    vals = filter(x->!isempty(x[timeid]), db_talk["data"])
+    vals = sort(vals, by=v->parse_time(v[timeid]), rev=true)
+    join(filter(!isempty, [render_talk(Dict(zip(keys, row))) for row in vals]), "\n")
 end
 
 function render_talk(row::Dict)
@@ -42,7 +45,7 @@ $name
 $abstract
 <table>
 <tr>
-<td><strong>Time</strong></td><td>$datetime</td>
+<td><strong>Time</strong></td><td>$(render_time(parse_time(datetime)))</td>
 </tr>
 </table>
 </small>
@@ -69,19 +72,21 @@ function hfun_render_team()
         push!(abs, render_member(row))
     end
     return """<p>$(join(names, "&nbsp;"^4))</p>
-<table>$(join(abs, "\n"))</table>
+$(join(abs, "\n"))
 """
 end
 
 function render_member(row::Dict)
-    cname, ename, title, office, email, avatar = row["中文名"], row["English name"], row["Titles"], row["Office"], row["Email"], row["Avatar"]
+    cname, ename, titles, office, email, avatar = row["中文名"], row["English name"], row["Titles"], row["Office"], row["Email"], row["Avatar"]
+    title = join(titles, "<br>")
     img = extract_single(avatar)
-    return """<tr>
-      <td style="border-bottom:0px">
-      <img src="$img" style="object-fit: cover; width: 100px; height: 120px; padding-left:0px; max-width:none">
-      </td>
-      <td style="border-bottom:0px">
-        <p>
+    return """
+    <div style="display:flex; vertical-align: top; margin-top:20px;">
+      <div>
+      <img src="$img" style="object-fit: cover; width: 100px; height: 140px; padding-left:0px; max-width:none">
+      </div>
+      <div style="margin-left:20px">
+        <p style="margin-top:0">
         <a href="/team/$ename/">$ename ($cname)</a><br>
         <small>
           $title
@@ -91,14 +96,17 @@ function render_member(row::Dict)
           Office: $office</a>
         </small>
         </p>
-      </td>
-    </tr>"""
+      </div>
+    </div>"""
 end
 
 function hfun_render_research()
     abs = String[]
     keys = db_research["keys"]
-    for rowdata in db_research["data"]
+    timeid = findfirst(==("Date"), keys)
+    vals = filter(x->!isempty(x[timeid]), db_research["data"])
+    vals = sort(vals, by=v->parse_date(v[timeid]), rev=true)
+    for rowdata in vals
         row = Dict(zip(keys, rowdata))
         push!(abs, render_research(row))
     end
@@ -107,20 +115,19 @@ function hfun_render_research()
 end
 
 function render_research(row::Dict)
-    title, person, abstract, image = row["Name"], row["Person"], row["Abstract"], row["Image"]
+    title, person, abstract, image, date = row["Name"], row["Person"], row["Abstract"], row["Image"], row["Date"]
     any(isempty, (title, person, abstract, image)) &&  return ""
     img = extract_single(image)
     return """<h3>$title</h3>
-    <table>
-    <tr><td style="border-bottom:0px">
-    <img src="$img" style="object-fit: cover; width: 200px; height: 240px; padding-left:0px; max-width:none">
-    </td>
-    <td style="border-bottom:0px; vertical-align:top">
-    <p>$abstract</p>
-    <p align="right" rel="author"><a href="/team/$person">$person</a></p>
-    </td>
-    </tr>
-    </table>
+    <div style="display:flex; vertical-align: top; margin-top:20px;">
+      <div>
+        <img src="$img" style="object-fit: cover; width: 200px; height: 240px; padding-left:0px; max-width:none">
+      </div>
+      <div style="width:100%;margin-left:20px">
+      <p>$abstract</p>
+      <p align="right" rel="author">$(render_date(parse_date(date))), <a href="/team/$person">$person</a></p>
+      </div>
+    </div>
     """
 end
 
