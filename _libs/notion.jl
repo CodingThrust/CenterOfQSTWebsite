@@ -44,14 +44,16 @@ function dbrow2plaintext(keys, row; download_files, overwrite)
             # NOTE: convert rich text to plain text
             join(String[item["plain_text"] for item in content], "\n")
         elseif type == "files"  # NOTE: only gets the first file! returns the file path
-            if !isempty(content) && download_files
+            if !isempty(content)
                 fnames = String[]
                 for file in content
-                    fname = joinpath(datafolder, file["name"])
-                    if overwrite || !isfile(fname)
-                        HTTP.download(file["file"]["url"], fname)
+                    if any(sub->endswith(lowercase(file["name"]), sub), download_files)
+                        fname = joinpath(datafolder, file["name"])
+                        if overwrite || !isfile(fname)
+                            HTTP.download(file["file"]["url"], fname)
+                        end
+                        push!(fnames, fname)
                     end
-                    push!(fnames, fname)
                 end
                 fnames
             else
@@ -83,7 +85,7 @@ function load_or_write_db(id; update, secret)
     mkpath(folder)
     fname = joinpath(folder, "db.json")
     if update
-        (keys, data) = dbread(id; download_files=true, overwrite=false, secret=secret)
+        (keys, data) = dbread(id; download_files=["png", "jpg", "jpeg"], overwrite=false, secret=secret)
         db = Dict("keys"=>keys, "data"=>data)
         # save to files
         open(fname, "w") do f
