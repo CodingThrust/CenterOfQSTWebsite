@@ -1,13 +1,10 @@
 include("_libs/notion.jl")
 
 # global constants
-id_research = "003d7922fb114b159c1a8323e9324ee2"
-id_talk = "d7fd2fd0f11e48dbb13e1018682d6219"
-id_team = "eb1998c2a7c54c649aa88ca82acc101d"
-
 db_research = load_or_write_db(id_research; update=false, secret="")
 db_talk = load_or_write_db(id_talk; update=false, secret="")
 db_team = load_or_write_db(id_team; update=false, secret="")
+db_lab = load_or_write_db(id_lab; update=false, secret="")
 
 extract_single(image) = isempty(image) ? "" : chop(image[1]; head=6, tail=0)
 
@@ -132,3 +129,34 @@ function render_research(row::Dict)
     """
 end
 
+function hfun_render_lab()
+    abs = String[]
+    keys = db_lab["keys"]
+    vals = db_lab["data"]
+    for rowdata in vals
+        row = Dict(zip(keys, rowdata))
+        push!(abs, render_lab(row))
+    end
+    return join(filter(!isempty, abs), "\n")
+end
+
+function render_lab(row::Dict)
+    title, abstract, image, people = row["Name"], row["Description"], row["Image"], row["Proposed by"]
+    any(isempty, (title, abstract, image)) &&  return ""
+    img = extract_single(image)
+    return """
+        <div class="feature__item">
+        <div class="archive__item">
+            <div class="archive__item-teaser">
+            <img src="$img" alt="$title" />
+            </div>
+            <div class="archive__item-body">
+            <h2 class="archive__item-title">$title</h2>
+            <div class="archive__item-excerpt">
+                <p>$abstract</p>
+            </div>
+            </div>
+        </div>
+        </div>
+    """
+end

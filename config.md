@@ -25,13 +25,10 @@ include("_libs/notion.jl")
 
 # global constants
 update_dbs = get(ENV, "UPDATEDATABASE", "false") == "true"
-id_research = "003d7922fb114b159c1a8323e9324ee2"
-id_talk = "d7fd2fd0f11e48dbb13e1018682d6219"
-id_team = "eb1998c2a7c54c649aa88ca82acc101d"
-
 db_research = load_or_write_db(id_research; update=update_dbs, secret=ENV["NOTIONDATABASE"])
 db_talk = load_or_write_db(id_talk; update=update_dbs, secret=ENV["NOTIONDATABASE"])
 db_team = load_or_write_db(id_team; update=update_dbs, secret=ENV["NOTIONDATABASE"])
+db_lab = load_or_write_db(id_lab; update=update_dbs, secret=ENV["NOTIONDATABASE"])
 
 extract_single(image) = isempty(image) ? "" : chop(image[1]; head=6, tail=0)
 
