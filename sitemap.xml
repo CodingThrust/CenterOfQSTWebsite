@@ -2,6 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
+    <loc>codingthrust.github.io/team/Sen%20Yang/index.html</loc>
+    <lastmod>2022-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
     <loc>codingthrust.github.io/team/Qiming%20Shao/index.html</loc>
     <lastmod>2022-09-27</lastmod>
     <changefreq>monthly</changefreq>
@@ -57,6 +63,12 @@
 </url>
 <url>
     <loc>codingthrust.github.io/team/Chee%20Keong%20Tan/index.html</loc>
+    <lastmod>2022-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>codingthrust.github.io/team/Jensen%20Tsan%20Hang%20Li/index.html</loc>
     <lastmod>2022-09-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
