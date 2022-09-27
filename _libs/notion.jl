@@ -99,10 +99,11 @@ end
 
 function render_html_member(row)
     cname, ename, affiliations, office, email, avatar, interest, bio, home = row["中文名"], row["English name"], row["Titles"], row["Office"], row["Email"], row["Avatar"], row["Interest"], row["Bio"], row["Home page"]
-    affiliation = join(affiliations, raw"<br>")
+    affiliation = join(affiliations, "<br>")
     img = extract_single(avatar)
     return """# $ename ($cname)
 ~~~
+    <p>$affiliation</p>
     <div class="div-row">
       <div class="div-first">
       <a href="$img"><img src="$img"></a>
