@@ -4316,25 +4316,20 @@ a.reversefootnote:hover {
   .feature__item {
     float: left;
     margin-bottom: 0;
-    width: 23.5%;
+    width: 31.5%;
   }
 
-  .feature__item:nth-child(4n+1) {
+  .feature__item:nth-child(3n+1) {
     clear: both;
     margin-left: 0;
   }
 
-  .feature__item:nth-child(4n+2) {
+  .feature__item:nth-child(3n+2) {
     clear: none;
     margin-left: 1.6949152542%;
   }
 
-  .feature__item:nth-child(4n+3) {
-    clear: none;
-    margin-left: 1.6949152542%;
-  }
-
-  .feature__item:nth-child(4n+4) {
+  .feature__item:nth-child(3n+3) {
     clear: none;
     margin-left: 1.6949152542%;
   }

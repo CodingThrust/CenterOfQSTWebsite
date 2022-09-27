@@ -24,7 +24,7 @@ The emails of professors can be found in the [team page](/team).
 1st Duxue Road, Nansha District, Guangzhou, Guangdong, China
 (中国广东省广州市南沙区笃学路1号)
 * Phone: TBD
-* Email: TBD
+* Email: qst@hkust-gz.edu.cn
 * Twitter, et al.: TBD
 ~~~
 <a href="/assets/map.jpg"><img src="/assets/map.jpg" style="width:100%"></img></a>
