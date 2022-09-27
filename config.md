@@ -4,7 +4,7 @@ Add here global page variables to use throughout your website.
 +++
 using DelimitedFiles
 
-author = "Center of Quantum Science and Technology"
+author = "Center for Quantum Science and Technology"
 mintoclevel = 2
 
 # Add here files or directories that should be ignored by Franklin, otherwise
@@ -15,7 +15,7 @@ ignore = ["node_modules/"]
 
 # RSS (the website_{title, descr, url} must be defined to get RSS)
 generate_rss = true
-website_title = "Center of Quantum Science and Technology"
+website_title = "Center for Quantum Science and Technology"
 website_descr = "A theme lab about quantum devices, quantum control, quantum software and quantum material at Advanced Material Thrust, Function Hub, Hong Kong University of Science and Technology (Guangzhou)"
 prepath = get(ENV, "PREVIEW_FRANKLIN_PREPATH", "CenterOfQSTWebsite") # In the third argument put the prepath you normally use
 website_url = get(ENV, "PREVIEW_FRANKLIN_WEBSITE_URL", "codingthrust.github.io") # Just put the website name

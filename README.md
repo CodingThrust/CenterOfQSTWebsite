@@ -1,6 +1,6 @@
-# Center of QST website
+# Center for QST website
 
-This repository hosts the [landing page of the Center of QST organization](https://codingthrust.github.io/CenterOfQSTWebsite/).
+This repository hosts the [landing page of the Center for QST organization](https://codingthrust.github.io/CenterOfQSTWebsite/).
 The website is built with [Franklin.jl](https://github.com/tlienart/Franklin.jl), and the
 master branch is automatically deployed by Github Actions.
 

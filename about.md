@@ -4,7 +4,7 @@
 
 ## Career
 
-### Tenure-track Faculty Positions in the Quantum Science and Technology Center of Hong Kong University of Science and Technology – Guangzhou (HKUST-GZ)
+### Tenure-track Faculty Positions in the Center for Quantum Science and Technology of Hong Kong University of Science and Technology – Guangzhou (HKUST-GZ)
 
 Quantum Science and Technology Center (QSTC) is a lab at the Hong Kong University of Science and Technology (HKUST) Guangzhou (GZ) campus located at the capital city of the Guangdong Province of Mainland China. The research areas of QSTC-GZ include quantum materials; quantum devices and sensing; quantum computing; and cold atomic physics and quantum simulation. We invite both experimental and theoretical candidates who have shown exceptional research productivity and evidence of making impacts at an international level to apply. The candidates are expected to work closely with the existing faculties at HKUST. More information about HKUST-GZ can be found at the [faculty recruitment website](https://gz-faculty-recruitment.hkust.edu.hk).
 
