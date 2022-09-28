@@ -1,5 +1,5 @@
-@def title = "Researches"
-@def tags = ["researches", "QST", "Quantum Science and Technology"]
+@def title = "Research"
+@def tags = ["research", "QST", "Quantum Science and Technology"]
 
 # Researches
 ~~~

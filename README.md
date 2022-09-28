@@ -24,5 +24,6 @@ If you want to update information, please update the corresponding notion databa
 * [Team](https://www.notion.so/eb1998c2a7c54c649aa88ca82acc101d?v=426ce48fef5d49f3af39a6dfd83c065a)
 * [Research](https://www.notion.so/003d7922fb114b159c1a8323e9324ee2?v=9c2e6aa609e541fb92c3ce933f0f9907)
 * [Events](https://www.notion.so/d7fd2fd0f11e48dbb13e1018682d6219?v=ba1e9799651b4679a07f67d688996466)
+* [Labs](https://www.notion.so/dcbb0aa27be6422d986506c9db8a69e0?v=e0760bad2a4a48e491eb95d0d5694348)
 
 After that, please remember [cast the database update spell](https://github.com/CodingThrust/CenterOfQSTWebsite/issues/3).
