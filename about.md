@@ -2,7 +2,7 @@
 @def tags = ["visit", "recruit"]
 @def maxtoclevel = 3
 
-## Career
+# Career
 
 ### Tenure-track Faculty Positions in the Center for Quantum Science and Technology of Hong Kong University of Science and Technology – Guangzhou (HKUST-GZ)
 
@@ -19,7 +19,7 @@ Please check the HKUST (GZ) [PG program application portal](https://fytgs.hkust.
 To apply, you can send your curriculum vitae (CV), grade (if you are applying for a PG program) and publication list to the email of the professor that you want to work with.
 The emails of professors can be found in the [team page](/team).
 
-## Contact
+# Contact
 
 1st Duxue Road, Nansha District, Guangzhou, Guangdong, China
 (中国广东省广州市南沙区笃学路1号)

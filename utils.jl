@@ -59,17 +59,25 @@ end
 
 function hfun_render_team()
     names = String[]
-    abs = String[]
+    abs_gz = String[]
+    abs_cwb = String[]
     keys = db_team["keys"]
     for rowdata in db_team["data"]
         row = Dict(zip(keys, rowdata))
         ename = row["English name"]
         cname = row["中文名"]
         push!(names, """<a href="/team/$ename/">$ename ($cname)</a>""")
-        push!(abs, render_member(row))
+        if endswith(row["Office"], "(GZ)")
+            push!(abs_gz, render_member(row))
+        else
+            push!(abs_cwb, render_member(row))
+        end
     end
     return """<p>$(join(names, "&nbsp;"^4))</p>
-$(join(abs, "\n"))
+<h1> Members </h1>
+$(join(abs_gz, "\n"))
+<h1> Affiliate members </h1>
+$(join(abs_cwb, "\n"))
 """
 end
 
